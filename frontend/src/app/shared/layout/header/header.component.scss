@@ -1,0 +1,56 @@
+@import "../../../../assets/styles/variables";
+
+header.header {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    .header__content {
+      display: flex;
+      align-items: center;
+
+      .header__menu {
+        margin-right: 257px;
+
+        nav ul {
+          margin: 0 0 4px;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          gap: 31px;
+
+
+          li {
+            list-style: none;
+
+            a {
+              color: $base-text-color;
+              font-size: 16px;
+              line-height: 130%;
+              cursor: pointer;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      .header__phone {
+        color: $second-base-text-color;
+        font-size: 16px;
+        line-height: 130%;
+        margin-right: 141px;
+        text-decoration: none;
+        margin-bottom: 4px;
+      }
+
+      .header__profile {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 7px;
+      }
+    }
+  }
+}
