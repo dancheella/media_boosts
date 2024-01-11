@@ -46,10 +46,15 @@ header.header {
       }
 
       .header__profile {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 7px;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          display: flex;
+          align-items: flex-start;
+          gap: 7px;
+          color: $base-text-color;
+        }
       }
     }
   }

@@ -29,10 +29,20 @@
         +7 (499) 343-13-34
       </a>
       <div class="header__profile">
-        <a href="#">
+        <a routerLink="/login" *ngIf="!isLogged">
           <img src="/assets/svg/user.svg" alt="User">
+          <span>Войти</span>
         </a>
-        <span>Войти</span>
+
+        <a *ngIf="isLogged" [matMenuTriggerFor]="menu">
+          <img src="/assets/svg/user.svg" alt="User">
+          <span>Привет, {{ userName }}!</span>
+        </a>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span (click)="logout()">Выйти</span>
+          </button>
+        </mat-menu>
       </div>
     </div>
   </div>

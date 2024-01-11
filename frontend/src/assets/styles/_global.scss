@@ -12,7 +12,6 @@ html, body {
   margin: 0 auto;
 }
 
-
 .btn {
   text-align: center;
   border-radius: 5px;
@@ -22,7 +21,33 @@ html, body {
   border: 0;
   color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 400;
   line-height: 130%;
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+  }
 }
+
+.input {
+  padding: 15px 20px;
+  border-radius: 3px;
+  border: 2px solid $second-base-text-color;
+  background: #FFF;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  color: $second-base-text-color;
+}
+
+.cdk-overlay-pane {
+  margin-top: 10px !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 0 !important;
+}
+
