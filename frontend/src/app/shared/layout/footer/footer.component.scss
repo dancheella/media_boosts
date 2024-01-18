@@ -1,8 +1,9 @@
 @import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
 
 footer.footer {
   padding: 40px 0 54px 0;
-  background: #B9D5FD;
+  background: $third-base-text-color;
 
   .container {
     display: flex;
@@ -27,12 +28,14 @@ footer.footer {
 
             a {
               color: $base-text-color;
-              font-size: 16px;
-              line-height: 130%;
+              @include head-lora-16;
               cursor: pointer;
-              font-family: "Montserrat", sans-serif;
-              font-weight: 400;
               text-decoration: none;
+              transition: .5s;
+
+              &:hover {
+                color: #FFFFFF;
+              }
             }
           }
         }
@@ -62,11 +65,14 @@ footer.footer {
 
         .footer__text {
           color: $base-text-color;
-          font-family: "Montserrat", sans-serif;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 130%;
+          @include head-lora-16;
           text-decoration: none;
+          transition: .5s;
+          cursor: pointer;
+
+          &:hover {
+            color: #FFFFFF;
+          }
         }
 
         .footer__link {
@@ -102,10 +108,7 @@ footer.footer {
 
     .footer__right {
       color: $second-base-text-color;
-      font-family: "Montserrat", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 130%;
+      @include head-lora-16;
     }
   }
 }

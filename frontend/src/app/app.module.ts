@@ -12,6 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatMenuModule } from "@angular/material/menu";
 import { AuthInterceptor } from "./core/auth/auth.interceptor";
+import { CarouselModule } from "ngx-owl-carousel-o";
+import { SharedModule } from "./shared/shared.module";
+import { CarouselComponent } from "./views/main/carousel/carousel.component";
+import { ServiceCardComponent } from "./views/main/service-card/service-card.component";
+import { ReviewsComponent } from './views/main/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +24,20 @@ import { AuthInterceptor } from "./core/auth/auth.interceptor";
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    CarouselComponent,
+    ServiceCardComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    SharedModule,
     MatSnackBarModule,
     MatMenuModule,
+    CarouselModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}},

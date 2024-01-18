@@ -1,0 +1,85 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.main__carousel {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  .main__info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    left: 80px;
+    top: 100px;
+
+    .main__highlights {
+      color: $second-base-text-color;
+      @include head-lora-14;
+      letter-spacing: 4.8px;
+      text-transform: uppercase;
+    }
+
+    .main__title {
+      width: 575px;
+      color: #FFF;
+      font-family: "Lora", sans-serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 20px;
+
+      &.main__title-color {
+        color: $second-base-text-color;
+      }
+    }
+
+    .main__description {
+      color: #FFF;
+      font-family: "Montserrat", sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 50px;
+      max-width: 456px;
+    }
+
+    .main__btn {
+      width: 163px;
+      padding: 15px 33px;
+      font-size: 16px;
+    }
+  }
+
+  .main__ellipse {
+    position: absolute;
+    left: 0;
+  }
+
+  .main__carousel-image {
+    width: 750px;
+    height: 500px;
+    background: lightgray 50% / cover no-repeat;
+  }
+}
+
+.main__arrows {
+  display: flex;
+
+  a {
+    top: calc(50% - 13px);
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+
+    &.main__previous {
+      left: 11px;
+    }
+
+    &.main__next {
+      right: 11px;
+    }
+  }
+}

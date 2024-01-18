@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { RouterLink } from "@angular/router";
+import { CarouselModule } from "ngx-owl-carousel-o";
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ArticleCardComponent,
+  ],
+  exports: [
+    ArticleCardComponent,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink,
+    CarouselModule
   ]
 })
 export class SharedModule { }

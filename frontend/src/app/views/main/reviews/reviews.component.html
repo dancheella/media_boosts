@@ -1,0 +1,22 @@
+<div class="reviews-carousel">
+  <owl-carousel-o [options]="customReviews" #owlCarReviews>
+    <ng-template carouselSlide *ngFor="let review of reviews">
+      <div class="review-item">
+        <div class="reviews-item-head">
+          <div class="reviews-item-image"
+               style="background-image: url('/assets/images/reviews/{{review.image}}')"></div>
+          <div class="reviews-item-name">{{ review.name }}</div>
+        </div>
+        <div class="review-item-text">{{ review.text }}</div>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+  <div class="reviews__arrows">
+    <a class="reviews__previous" (click)="owlCarReviews.prev()">
+      <img src="assets/svg/arrow-left.svg" alt="Previous">
+    </a>
+    <a class="reviews__next" (click)="owlCarReviews.next()">
+      <img src="assets/svg/arrow-right.svg" alt="Next">
+    </a>
+  </div>
+</div>

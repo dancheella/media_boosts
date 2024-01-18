@@ -1,0 +1,22 @@
+@import "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/variables";
+
+.terms {
+  .container {
+    text-align: justify;
+    .terms__title {
+      @include head-lora-38;
+      text-align: center;
+    }
+
+    .terms__text {
+      @include head-lora-16;
+      color: $black-text-color;
+      margin-bottom: 20px;
+
+      .terms__text-bold {
+        font-weight: 600;
+      }
+    }
+  }
+}

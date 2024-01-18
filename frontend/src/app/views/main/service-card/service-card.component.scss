@@ -1,0 +1,59 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.service-card {
+  width: 291px;
+  height: 498px;
+  box-sizing: border-box;
+
+  &:hover {
+    .service-card__image {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .service-card__image {
+    width: 291px;
+    height: 291px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+    transition: .5s ease;
+  }
+
+  .service-card__title {
+    @include head-lora-20;
+    margin-bottom: 10px;
+  }
+
+  .service-card__description {
+    color: $base-text-color;
+    @include head-lora-14;
+    height: 90px;
+    margin-bottom: 15px;
+  }
+
+  .service-card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .service-card__price {
+      color: $second-base-text-color;
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 130%;
+    }
+
+    .service-card__action {
+      .service-card__btn {
+        width: 163px;
+        padding: 15px 33px;
+        font-size: 16px;
+      }
+    }
+  }
+}

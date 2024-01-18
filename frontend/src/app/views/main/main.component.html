@@ -1,0 +1,132 @@
+<section class="main">
+  <div class="container">
+    <app-carousel></app-carousel>
+  </div>
+</section>
+
+<section class="service">
+  <div class="container">
+    <div class="service__title">Услуги, которые мы предлагаем</div>
+    <div class="service__cards">
+      <service-card [service]="service" *ngFor="let service of services"></service-card>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about__image">
+      <img src="assets/images/main/people.jpeg" alt="People">
+    </div>
+    <div class="about__info">
+      <div class="about__title">Кто мы и чем мы занимаемся?</div>
+      <div class="about__description"><span class="weight">АйтиШторм</span> — это ваш помощник №1 при
+        решении таких вопросов, как продвижение в
+        сети, разработка сайтов для бизнеса и личного бренда, сторисмейкинг, копирайтинг, маркетинг, разработка
+        визуальной концепции и создание инфопродуктов. Компания была основана в 2019 году и за всё это время смогла
+        выйти в ТОП-10 агенств, предлагающих услуги продвижения в сети.
+      </div>
+      <div class="about__subtitle">Наши преимущества</div>
+      <div class="about__advantages">
+        <div class="about__advantage">
+          <div class="about__advantage-item">
+            <div class="about__advantage-number">1</div>
+          </div>
+          <div class="about__advantage-text"><span class="weight">Мастерски вовлекаем аудиториюв процесс.</span> Мы
+            увеличиваем процент вовлечённости за короткий промежуток времени.
+          </div>
+        </div>
+        <div class="about__advantage">
+          <div class="about__advantage-item">
+            <div class="about__advantage-number">2</div>
+          </div>
+          <div class="about__advantage-text"><span class="weight">Разрабатываем бомбическую визуальную концепцию.</span>
+            Наши специалисты знают как создать уникальный образ вашего проекта.
+          </div>
+        </div>
+        <div class="about__advantage">
+          <div class="about__advantage-item">
+            <div class="about__advantage-number">3</div>
+          </div>
+          <div class="about__advantage-text"><span class="weight">Создаём мощные воронки с помощью текстов.</span> Наши
+            копирайтеры создают не только вкусные текста, но и классные воронки.
+          </div>
+        </div>
+        <div class="about__advantage">
+          <div class="about__advantage-item">
+            <div class="about__advantage-number">4</div>
+          </div>
+          <div class="about__advantage-text"><span class="weight">Помогаем продавать больше.</span> Мы не только
+            помогаем разработать стратегию по продажам, но также корректируем её под нужды заказчика.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="article">
+  <div class="container">
+    <div class="article__title">Популярные статьи из блога</div>
+    <div class="article__cards">
+      <article-card [article]="article" *ngFor="let article of articles"></article-card>
+    </div>
+    <a routerLink="/blog" class="article__blog">
+      <span class="article__blog-text">Перейти в блог</span>
+      <svg class="article__blog-image" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+           fill="none">
+        <path
+          d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z"
+          fill="#709FDC"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="reviews__title">Отзывы о нашей работе</div>
+    <app-reviews></app-reviews>
+  </div>
+</section>
+
+<section class="info">
+  <div class="container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.496204917337!2d37.53528857684007!3d55.74988197308317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54bdcbfd1b72d%3A0x433d48214f76b256!2z0J_RgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LEuLCAxMiwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyMzMxNw!5e0!3m2!1sru!2sby!4v1705617415049!5m2!1sru!2sby"
+      style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="607"
+      height="438">>
+    </iframe>
+    <div class="info__contacts">
+      <div class="info__contacts-title">Контакты</div>
+      <div class="info__contacts-block">
+        <div class="info__contacts-block__title">Адрес</div>
+        <div class="info__contacts-block__text">Главный офис компании АйтиШторм находится по адресу Пресненская наб.,
+          12, Москва, Россия, 123317.
+        </div>
+      </div>
+      <div class="info__contacts-block">
+        <div class="info__contacts-block__title">Телефон</div>
+        <a href="tel:+74993431334" class="info__contacts-block__text">+7 (499) 343-13-34</a>
+      </div>
+      <div class="info__contacts-block">
+        <div class="info__contacts-block__title">Электронный адрес</div>
+        <a class="info__contacts-block__text" href="mailto:info@itstorm.com">info&#64;itstorm.com</a>
+      </div>
+      <div class="info__contacts-block">
+        <div class="info__contacts-block__title">Мы в социальных сетях</div>
+        <div class="info__contacts-block__social">
+          <a href="https://vk.com/">
+            <img src="/assets/svg/main/vk.svg" alt="VK">
+          </a>
+          <a href="https://www.facebook.com/">
+            <img src="/assets/svg/main/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/">
+            <img src="/assets/svg/main/instagram.svg" alt="Instagram">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

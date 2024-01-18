@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__content">
-      <a href="#" class="logo">
+      <a routerLink="/" class="logo">
         <img src="/assets/svg/logo.svg" alt="Logo">
       </a>
       <div class="footer__menu">
@@ -29,7 +29,10 @@
     <div class="footer__contacts">
       <div class="footer__address">
         <div class="footer__head">Адрес</div>
-        <span class="footer__text">Пресненская наб., 12, Москва, Россия, 123317.</span>
+        <a class="footer__text"
+           target="_blank"
+           href="https://www.google.com/maps/place/%D0%9F%D1%80%D0%B5%D1%81%D0%BD%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BD%D0%B0%D0%B1.,+12,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,+%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F,+123317/@55.749882,37.5352886,17z/data=!3m1!4b1!4m6!3m5!1s0x46b54bdcbfd1b72d:0x433d48214f76b256!8m2!3d55.749882!4d37.5378635!16s%2Fg%2F11gbx8qy19?entry=ttu">Пресненская
+          наб., 12, Москва, Россия, 123317.</a>
       </div>
       <div class="footer__phone">
         <div class="footer__head">Телефон</div>
@@ -44,19 +47,19 @@
         <div class="footer__head">Мы в социальных сетях:</div>
         <div class="footer__social">
           <a href="https://vk.com/">
-            <img src="/assets/svg/vk.svg" alt="VK">
+            <img src="/assets/svg/footer/vk.svg" alt="VK">
           </a>
           <a href="https://www.facebook.com/">
-            <img src="/assets/svg/facebook.svg" alt="Facebook">
+            <img src="/assets/svg/footer/facebook.svg" alt="Facebook">
           </a>
           <a href="https://www.instagram.com/">
-            <img src="/assets/svg/instagram.svg" alt="Instagram">
+            <img src="/assets/svg/footer/instagram.svg" alt="Instagram">
           </a>
         </div>
       </div>
     </div>
     <div class="footer__right">
-      © 2022. Все права защищены
+      © {{ currentYear }}. Все права защищены
     </div>
   </div>
 </footer>

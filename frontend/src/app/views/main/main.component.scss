@@ -1,0 +1,250 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.main {
+  padding-bottom: 60px;
+
+  .container {
+    position: relative;
+  }
+}
+
+.service,
+.article,
+.reviews {
+  padding: 60px 0;
+
+  .container {
+    .service__title,
+    .article__title,
+    .reviews__title {
+      color: #709FDC;
+      font-family: "Lora", sans-serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 40px;
+    }
+
+    .service__cards,
+    .article__cards {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.about {
+  padding: 60px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    .about__image {
+      width: 460px;
+      height: 453px;
+      transition: .5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
+    .about__info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 712px;
+
+      .about__title {
+        @include head-lora-38;
+      }
+
+      .about__description {
+        color: $black-text-color;
+        @include head-lora-14;
+        margin-bottom: 20px;
+        max-width: 633px;
+
+        .weight {
+          font-weight: 500;
+        }
+      }
+    }
+
+    .about__subtitle {
+      color: $second-base-text-color;
+      font-family: "Lora", sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 130%;
+    }
+
+    .about__advantages {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 20px;
+      column-gap: 71px;
+
+      .about__advantage {
+        display: flex;
+        width: 316px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .about__advantage-item {
+          background-color: $third-base-text-color;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          position: relative;
+          transition: .5s ease;
+
+          &:hover {
+            background-color: $second-base-text-color;
+
+            .about__advantage-number {
+              color: $base-text-color;
+            }
+          }
+
+          .about__advantage-number {
+            color: $second-base-text-color;
+            font-family: "Lora", sans-serif;
+            font-size: 50px;
+            font-weight: 500;
+            line-height: 130%;
+            position: absolute;
+            bottom: -5px;
+            left: 6px;
+            width: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s ease;
+          }
+        }
+
+        .about__advantage-text {
+          width: 256px;
+          color: $black-text-color;
+          @include head-lora-14;
+
+          .weight {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+.article {
+  padding-bottom: 86px;
+  .container {
+    .article__title {
+      margin-bottom: 38px;
+    }
+
+    .article__cards {
+      margin-bottom: 40px;
+    }
+
+    .article__blog {
+      float: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-decoration: none;
+
+      &:hover {
+        .article__blog-text {
+          color: $base-text-color;
+        }
+
+        .article__blog-image path {
+          fill: $base-text-color;
+        }
+      }
+
+      .article__blog-text {
+        @include head-lora-20;
+        transition: .5s ease;
+      }
+
+      .article__blog-image path {
+        transition: .5s ease;
+      }
+    }
+  }
+}
+
+.reviews {
+  .container {
+    .reviews__title {
+      margin-bottom: 18px;
+    }
+  }
+}
+
+.info {
+  padding: 60px 0 120px 0;
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 26px;
+
+    .info__contacts {
+      max-width: 501px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .info__contacts-title {
+        @include head-lora-38;
+      }
+
+      .info__contacts-block {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .info__contacts-block__title {
+          @include head-lora-20;
+        }
+
+        .info__contacts-block__text {
+          @include head-lora-14;
+          color: $base-text-color;
+          text-decoration: none;
+        }
+
+        .info__contacts-block__social {
+          display: flex;
+          gap: 20px;
+
+          img {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

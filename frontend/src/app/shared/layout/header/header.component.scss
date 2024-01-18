@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/variables";
 
 header.header {
-  padding: 40px 0;
+  padding: 40px 0 35px 0;
 
   .container {
     display: flex;
@@ -21,7 +21,6 @@ header.header {
           align-items: center;
           gap: 31px;
 
-
           li {
             list-style: none;
 
@@ -31,6 +30,11 @@ header.header {
               line-height: 130%;
               cursor: pointer;
               text-decoration: none;
+              transition: .5s;
+
+              &:hover {
+                color: $second-base-text-color;
+              }
             }
           }
         }
@@ -43,6 +47,11 @@ header.header {
         margin-right: 141px;
         text-decoration: none;
         margin-bottom: 4px;
+        transition: .5s;
+
+        &:hover {
+          color: $base-text-color;
+        }
       }
 
       .header__profile {
