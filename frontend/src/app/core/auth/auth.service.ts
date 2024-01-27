@@ -43,7 +43,7 @@ export class AuthService {
     throw throwError(() => 'Токен не найден!');
   }
 
-  public getIsLoggedIn() {
+  public getIsLoggedIn(): boolean {
     return this.isLogged;
   }
 

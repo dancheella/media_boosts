@@ -1,20 +1,31 @@
 import { Component, Input } from '@angular/core';
-import { ServiceType } from "../../../../types/service.type";
+import { MatDialog } from '@angular/material/dialog';
+import { ServiceType } from '../../../../types/service.type';
+import { PopupComponent } from "../../../shared/components/popup/popup.component";
 
 @Component({
   selector: 'service-card',
   templateUrl: './service-card.component.html',
-  styleUrl: './service-card.component.scss'
+  styleUrls: ['./service-card.component.scss']
 })
 export class ServiceCardComponent {
   @Input() service: ServiceType;
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     this.service = {
       image: '',
       title: '',
       description: '',
       price: '',
-    }
+    };
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, selectedServiceTitle: string, showSelect: boolean): void {
+    this.dialog.open(PopupComponent, {
+      width: '727px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: { selectedServiceTitle, showSelect }
+    });
   }
 }

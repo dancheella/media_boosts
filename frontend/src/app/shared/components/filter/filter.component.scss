@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.filter__block {
+  width: 148px;
+  box-sizing: border-box;
+  position: relative;
+  @include head-lora-16;
+
+  .filter__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    color: $base-text-color;
+  }
+
+  .filter__body {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px 23px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid $third-base-text-color;
+    background: #FFFFFF;
+    color: #BEBEBE;
+    box-sizing: border-box;
+
+    .filter__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 30px;
+      cursor: pointer;
+
+      .filter__body-plus {
+        font-size: 24px;
+      }
+
+      &.active {
+        color: $base-text-color;
+      }
+    }
+  }
+
+  &.open {
+    width: 257px;
+
+    .filter__main {
+      border-radius: 5px 5px 0 0;
+      background: #B9D5FD;
+      padding: 12px 23px;
+    }
+
+    .filter__body {
+      display: flex;
+    }
+  }
+}

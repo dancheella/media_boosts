@@ -1,0 +1,8 @@
+<div class="filter__applied-filters">
+  <div class="filter__applied-filter" *ngFor="let appliedFilter of appliedFilters">
+    <span>{{appliedFilter.name}}</span>
+    <a (click)="removeAppliedFilter(appliedFilter)">
+      <img src="../../../../assets/svg/cross.svg" alt="Cross">
+    </a>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="filter__block" [class.open]="filterOpen" (click)="toggleFilter()">
+  <div class="filter__main">
+    <span>Фильтр</span>
+    <img *ngIf="filterOpen" src="../../../../assets/svg/arrow-up.svg" alt="Arrow-up">
+    <img *ngIf="!filterOpen" src="../../../../assets/svg/arrow-down.svg" alt="Arrow-down">
+  </div>
+  <div class="filter__body">
+    <div class="filter__item" *ngFor="let category of categories"
+         [class.active]="this.activeParams.categories.includes(category.url)"
+         (click)="updateFilterParams(category.url)">
+      <span class="filter__body-title">{{ category.name }}</span>
+      <span class="filter__body-plus">{{ this.activeParams.categories.includes(category.url) ? '-' : '+' }}</span>
+    </div>
+  </div>
+</div>

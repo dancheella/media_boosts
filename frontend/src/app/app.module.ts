@@ -15,8 +15,9 @@ import { AuthInterceptor } from "./core/auth/auth.interceptor";
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { SharedModule } from "./shared/shared.module";
 import { CarouselComponent } from "./views/main/carousel/carousel.component";
-import { ServiceCardComponent } from "./views/main/service-card/service-card.component";
 import { ReviewsComponent } from './views/main/reviews/reviews.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { ServiceCardComponent } from "./views/main/service-card/service-card.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ReviewsComponent } from './views/main/reviews/reviews.component';
     SharedModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatDialogModule,
     CarouselModule,
     AppRoutingModule,
     BrowserAnimationsModule,

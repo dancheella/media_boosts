@@ -1,1 +1,13 @@
-<p>blog works!</p>
+<div class="blog">
+  <div class="container">
+    <h1 class="blog__title">Блог</h1>
+    <div class="filter__head">
+      <app-applied-filter [categories]="categories"></app-applied-filter>
+      <app-filter [categories]="categories"></app-filter>
+    </div>
+    <div class="blog__article">
+      <article-card *ngFor="let article of articles" [article]="article"></article-card>
+    </div>
+    <app-pagination [pages]="pages"></app-pagination>
+  </div>
+</div>

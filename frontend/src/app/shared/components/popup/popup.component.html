@@ -1,0 +1,54 @@
+<div class="popup">
+  <button class="popup__close" (click)="closePopup()">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="1.93562" y1="2.64999" x2="13.9564" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+      <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <h2 class="popup__title" *ngIf="!isOrderCreated">
+    {{ isSelect ? 'Заявка на услугу' : 'Закажите бесплатную консультацию!' }}
+  </h2>
+  <h2 class="popup__title" *ngIf="isOrderCreated">Спасибо за вашу заявку!</h2>
+  <div class="popup__description" *ngIf="isOrderCreated">
+    Мы свяжемся с вами при первой же возможности.
+  </div>
+  <div class="popup__info" [formGroup]="form" *ngIf="!isOrderCreated">
+    <select name="categories" class="popup__select"
+            formControlName="service" *ngIf="isSelect">
+      <option *ngFor="let title of serviceTitles" [value]="title">{{ title }}</option>
+    </select>
+    <input class="popup__input" type="text" placeholder="Ваше имя"
+           [ngStyle]="{'border-color': name?.invalid && (name?.dirty || name?.touched) ? 'red' : ''}"
+           formControlName="name">
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+      <div class="text-danger" *ngIf="name?.errors?.['required']">
+        Заполните поле "Имя"!
+      </div>
+      <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+        Некорректное имя!
+      </div>
+    </div>
+    <input class="popup__input" type="text" placeholder="Ваш номер телефона"
+           [ngStyle]="{'border-color': phone?.invalid && (phone?.dirty || phone?.touched) ? 'red' : ''}"
+           formControlName="phone">
+    <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+      <div class="text-danger" *ngIf="phone?.errors?.['required']">
+        Заполните поле "Телефон"!
+      </div>
+      <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+        Некорректный телефон!
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isOrderCreated">
+    <button class="popup__btn btn" *ngIf="isSelect || !isSelect" (click)="createOrder()">
+      {{ isSelect ? 'Оставить заявку' : 'Заказать консультацию' }}
+    </button>
+    <div *ngIf="errorMessage" class="text-danger">
+      {{ errorMessage }}
+    </div>
+  </div>
+  <div *ngIf="isOrderCreated">
+    <button class="popup__btn btn" (click)="closePopup()">Ок</button>
+  </div>
+</div>

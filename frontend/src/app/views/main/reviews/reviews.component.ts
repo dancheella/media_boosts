@@ -11,14 +11,6 @@ import { ReviewsService } from "../../../shared/services/reviews.service";
 export class ReviewsComponent implements OnInit{
   @Input() review: ReviewsType;
 
-  constructor(private reviewsService: ReviewsService) {
-    this.review = {
-      name: '',
-      image: '',
-      text: '',
-    }
-  }
-
   customReviews: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -45,7 +37,15 @@ export class ReviewsComponent implements OnInit{
 
   reviews: ReviewsType[] = [];
 
-  ngOnInit() {
+  constructor(private reviewsService: ReviewsService) {
+    this.review = {
+      name: '',
+      image: '',
+      text: '',
+    }
+  }
+
+  ngOnInit(): void {
     this.reviews = this.reviewsService.getReviews();
   }
 }

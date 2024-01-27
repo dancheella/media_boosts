@@ -13,8 +13,8 @@
             <li>
               <a>О нас</a>
             </li>
-            <li>
-              <a>Статьи</a>
+            <li routerLinkActive="active-link">
+              <a routerLink="/blog">Статьи</a>
             </li>
             <li>
               <a>Отзывы</a>
@@ -37,7 +37,7 @@
       <div class="footer__phone">
         <div class="footer__head">Телефон</div>
         <a class="footer__text" href="tel:+74993431334">+7 (499) 343-13-34</a>
-        <button class="footer__btn btn">Перезвоните мне</button>
+        <button class="footer__btn btn" (click)="openDialog('500ms', '250ms', false)">Перезвоните мне</button>
       </div>
       <div class="footer__email">
         <div class="footer__head">E-mail</div>

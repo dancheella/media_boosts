@@ -5,7 +5,7 @@
   <div class="service-card__info">
     <div class="service-card__price">{{ service.price }}</div>
     <div class="service-card__action">
-      <button class="service-card__btn btn">Подробнее</button>
+      <button class="service-card__btn btn" (click)="openDialog('500ms', '250ms', service.title, true)">Подробнее</button>
     </div>
   </div>
 </div>

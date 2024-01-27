@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  .pagination__arrow {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+  }
+
+  .pagination__pages {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .pagination__page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 10px;
+      cursor: pointer;
+      color: $base-text-color;
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 130%;
+
+      &.active {
+        color: $third-base-text-color;
+      }
+    }
+  }
+}

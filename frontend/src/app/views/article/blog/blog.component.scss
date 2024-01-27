@@ -1,0 +1,28 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.blog{
+  padding: 80px 0 120px 0;
+
+  .container {
+    .blog__title {
+      @include head-lora-38;
+      margin-bottom: 40px;
+    }
+
+    .filter__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 34px;
+      height: 45px;
+    }
+
+    .blog__article {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 24px;
+      margin-bottom: 60px;
+    }
+  }
+}

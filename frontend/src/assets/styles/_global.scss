@@ -7,6 +7,11 @@ html, body {
   font-weight: 500;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
 .container {
   max-width: $container-width;
   margin: 0 auto;
@@ -103,4 +108,9 @@ html, body {
 
 .owl-theme .owl-dots .owl-dot:hover span {
   background: $third-base-text-color;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 10px !important;
+  border: 2px solid $second-base-text-color;
 }

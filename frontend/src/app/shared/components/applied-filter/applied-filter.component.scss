@@ -1,0 +1,25 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.filter__applied-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .filter__applied-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 5px;
+    border: 2px solid $second-base-text-color;
+    @include head-lora-16;
+    color: $second-base-text-color;
+    padding: 7px 19px;
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+    }
+  }
+}

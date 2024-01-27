@@ -34,4 +34,8 @@ export class ServiceService {
       }
     ];
   }
+
+  getServiceTitles(): string[] {
+    return this.getServices().map(service => service.title);
+  }
 }

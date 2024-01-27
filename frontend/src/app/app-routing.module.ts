@@ -15,6 +15,7 @@ const routes: Routes = [
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule),
         canActivate: [authForwardGuard]
       },
+      { path: '', loadChildren: () => import('./views/article/article.module').then(m => m.ArticleModule) },
     ]
   }
 ];

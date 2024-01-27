@@ -45,12 +45,20 @@
     .article-card__title {
       @include head-lora-20;
       margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .article-card__description {
       color: $base-text-color;
       @include head-lora-14;
       width: 286px;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 

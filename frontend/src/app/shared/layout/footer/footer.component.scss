@@ -26,6 +26,10 @@ footer.footer {
           li {
             list-style: none;
 
+            &.active-link a {
+              color: #FFFFFF;
+            }
+
             a {
               color: $base-text-color;
               @include head-lora-16;
@@ -93,6 +97,11 @@ footer.footer {
 
           a {
             font-size: 0;
+            transition: .5s ease;
+
+            &:hover {
+              transform: scale(1.2);
+            }
           }
         }
       }

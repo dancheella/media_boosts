@@ -8,10 +8,7 @@ import { HighlightsService } from "../../../shared/services/highlights.service";
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss'
 })
-export class CarouselComponent implements OnInit{
-
-  constructor(private highlightsService: HighlightsService) {}
-
+export class CarouselComponent implements OnInit {
   highlights: HighlightsType[] = [];
 
   customHighlights: OwlOptions = {
@@ -31,7 +28,9 @@ export class CarouselComponent implements OnInit{
     nav: false
   }
 
-  ngOnInit() {
+  constructor(private highlightsService: HighlightsService) {}
+
+  ngOnInit(): void {
     this.highlights = this.highlightsService.getHighlights();
   }
 }

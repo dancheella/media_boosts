@@ -24,6 +24,10 @@ header.header {
           li {
             list-style: none;
 
+            &.active-link a {
+              color: $second-base-text-color;
+            }
+
             a {
               color: $base-text-color;
               font-size: 16px;
