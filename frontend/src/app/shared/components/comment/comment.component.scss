@@ -1,0 +1,97 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.comment {
+  margin-bottom: 40px;
+
+  .comment__info {
+    display: flex;
+    gap: 26px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+
+    .comment__image {
+      box-sizing: border-box;
+      width: 61px;
+      height: 61px;
+      border-radius: 50%;
+      border: 1px solid $second-base-text-color;
+      background: $third-base-text-color;
+    }
+  }
+
+  .comment__main {
+    .comment__title {
+      @include head-lora-16;
+      margin-bottom: 10px;
+    }
+
+    .comment__data {
+      @include head-lora-14;
+      color: $gray;
+      font-weight: 600;
+    }
+  }
+
+  .comment__description {
+    @include head-lora-14;
+    line-height: 140%;
+    color: $base-text-color;
+    margin-bottom: 39px;
+  }
+
+  .comment__option {
+    display: flex;
+    gap: 15px;
+
+    .comment__option-block {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      cursor: pointer;
+
+      .comment__option-number {
+        @include head-lora-14;
+        color: $base-text-color;
+        font-weight: 600;
+        line-height: 140%;
+
+        &.active {
+          color: $second-base-text-color;
+        }
+      }
+
+      .like,
+      .dislike,
+      .spam {
+        transition: .5s ease;
+      }
+
+      .like {
+        &.active {
+          stroke: $second-base-text-color;
+        }
+
+        &:hover {
+          stroke: #2fff00;
+        }
+      }
+
+      .dislike {
+        &.active {
+          stroke: $second-base-text-color;
+        }
+
+        &:hover {
+          stroke: #f80000;
+        }
+      }
+
+      .spam {
+        &:hover {
+          stroke: $third-base-text-color;
+        }
+      }
+    }
+  }
+}

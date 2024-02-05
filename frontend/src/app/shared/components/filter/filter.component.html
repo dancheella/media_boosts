@@ -5,7 +5,7 @@
     <img *ngIf="!filterOpen" src="../../../../assets/svg/arrow-down.svg" alt="Arrow-down">
   </div>
   <div class="filter__body">
-    <div class="filter__item" *ngFor="let category of categories"
+    <div class="filter__body-item" *ngFor="let category of categories"
          [class.active]="this.activeParams.categories.includes(category.url)"
          (click)="updateFilterParams(category.url)">
       <span class="filter__body-title">{{ category.name }}</span>

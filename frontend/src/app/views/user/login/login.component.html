@@ -5,13 +5,25 @@
       <div class="auth__inputs">
         <div class="auth__input">
           <input type="text" class="input" placeholder="Электронная почта" formControlName="email"
-                 [ngStyle]="{'border-color': loginForm.get('email')?.invalid
-                 && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) ? 'red' : ''}">
+                 [ngStyle]="{'border-color': email?.invalid
+                 && (email?.dirty || email?.touched) ? 'red' : ''}">
+        </div>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div class="text-danger" *ngIf="email?.errors?.['required']">
+            Заполните поле "Электронная почта"!
+          </div>
+          <div class="text-danger" *ngIf="email?.errors?.['pattern']">
+            Введите корректный email!
+          </div>
         </div>
         <div class="auth__input">
           <input type="password" class="input" placeholder="Пароль" formControlName="password"
-                 [ngStyle]="{'border-color': loginForm.get('password')?.invalid
-                 && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? 'red' : ''}">
+                 [ngStyle]="{'border-color': password?.invalid
+                 && (password?.dirty || password?.touched) ? 'red' : ''}">
+        </div>
+        <div class="text-danger"
+             *ngIf="password?.invalid && (password?.dirty || password?.touched) && password?.errors?.['required']">
+          Заполните поле "Пароль"!
         </div>
         <div class="auth__checkbox">
           <input type="checkbox" id="remember" formControlName="rememberMe">

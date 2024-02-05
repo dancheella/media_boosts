@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ServiceCardComponent } from "../../../views/main/service-card/service-card.component";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { ServiceService } from "../../services/service.service";
@@ -7,24 +7,27 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { RequestService } from "../../services/request.service";
 import { RequestType } from "../../../../types/request.type";
 import { HttpErrorResponse } from "@angular/common/http";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent implements OnInit, OnDestroy {
   serviceTitles: string[] = [];
   isSelect: boolean = false;
   requestType: RequestTypesType = RequestTypesType.order;
   isOrderCreated: boolean = false;
   errorMessage: string = '';
+  private subscription: Subscription | null = null;
 
   form = this.fb.group({
-    name: ['', Validators.required],
-    phone: ['', Validators.required],
+    name: ['', [Validators.required, Validators.pattern(/^[А-ЯЁ][а-яё]*(?:\s[А-ЯЁ][а-яё]*)*$/)]],
+    phone: ['', [Validators.required, Validators.pattern(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/)]],
     service: [this.data.selectedServiceTitle],
   });
+
 
   constructor(private dialogRef: MatDialogRef<ServiceCardComponent>,
               private fb: FormBuilder,
@@ -82,7 +85,7 @@ export class PopupComponent implements OnInit {
         }
       }
 
-      this.requestService.createRequest(requestData)
+      this.subscription = this.requestService.createRequest(requestData)
         .subscribe({
           next: () => {
             this.isOrderCreated = true;
@@ -98,5 +101,9 @@ export class PopupComponent implements OnInit {
 
   closePopup() {
     this.dialogRef?.close();
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 }

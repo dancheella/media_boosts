@@ -17,10 +17,6 @@ export class UserService {
     return this.http.get<DefaultResponseType | UserInfoType>(environment.apiURL + 'users')
   }
 
-  get userName(): null | string {
-    return localStorage.getItem(this.userNameKey);
-  }
-
   set userName(name: string | null) {
     if (name) {
       localStorage.setItem(this.userNameKey, name);

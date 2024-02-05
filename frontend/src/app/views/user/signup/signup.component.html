@@ -5,24 +5,46 @@
       <div class="auth__inputs">
         <div class="auth__input">
           <input type="text" class="input" placeholder="Ваше имя" formControlName="name"
-                 [ngStyle]="{'border-color': signupForm.get('name')?.invalid
-                 && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched) ? 'red' : ''}">
+                 [ngStyle]="{'border-color': name?.invalid && (name?.dirty || name?.touched) ? 'red' : ''}">
+        </div>
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div class="text-danger" *ngIf="name?.errors?.['required']">
+            Заполните поле "Имя"!
+          </div>
+          <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+            Имя должно начинаться с заглавной буквы, может содержать только русские буквы и пробел!
+          </div>
         </div>
         <div class="auth__input">
           <input type="text" class="input" placeholder="Электронная почта" formControlName="email"
-                 [ngStyle]="{'border-color': signupForm.get('email')?.invalid
-                 && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched) ? 'red' : ''}">
+                 [ngStyle]="{'border-color': email?.invalid && (email?.dirty || email?.touched) ? 'red' : ''}">
+        </div>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div class="text-danger" *ngIf="email?.errors?.['required']">
+            Заполните поле "Электронная почта"!
+          </div>
+          <div class="text-danger" *ngIf="email?.errors?.['pattern']">
+            Введите корректный email!
+          </div>
         </div>
         <div class="auth__input">
           <input type="password" class="input" placeholder="Пароль" formControlName="password"
-                 [ngStyle]="{'border-color': signupForm.get('password')?.invalid
-                 && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched) ? 'red' : ''}">
+                 [ngStyle]="{'border-color': password?.invalid && (password?.dirty || password?.touched) ? 'red' : ''}">
+        </div>
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <div class="text-danger" *ngIf="password?.errors?.['required']">
+            Заполните поле "Пароль"!
+          </div>
+          <div class="text-danger" *ngIf="password?.errors?.['pattern']">
+            Пароль должен быть не менее 8 символов, содержать как минимум 1 букву в верхнем регистре и как минимум 1
+            цифру
+          </div>
         </div>
         <div class="auth__checkbox">
           <input type="checkbox" id="agree" formControlName="agree">
           <label for="agree">
-            Я принимаю <a routerLink="/terms">условия пользовательского соглашения</a> и <a routerLink="/terms">даю согласие
-            на обработку персональных данных.</a>
+            Я принимаю <a routerLink="/terms" fragment="terms-personal">условия пользовательского соглашения</a> и
+            <a routerLink="/terms" fragment="terms-right">даю согласие на обработку персональных данных.</a>
           </label>
         </div>
       </div>

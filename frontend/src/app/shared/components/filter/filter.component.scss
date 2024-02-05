@@ -27,10 +27,10 @@
     border-radius: 0 0 5px 5px;
     border: 2px solid $third-base-text-color;
     background: #FFFFFF;
-    color: #BEBEBE;
+    color: $gray;
     box-sizing: border-box;
 
-    .filter__item {
+    .filter__body-item {
       display: flex;
       justify-content: space-between;
       align-items: center;

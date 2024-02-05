@@ -43,6 +43,16 @@ export class AuthService {
     throw throwError(() => 'Токен не найден!');
   }
 
+  refresh(): Observable<DefaultResponseType | LoginResponseType> {
+    const tokens = this.getTokens();
+    if (tokens && tokens.refreshToken) {
+      return this.http.post<DefaultResponseType | LoginResponseType>(environment.apiURL + 'refresh', {
+        refreshToken: tokens.refreshToken
+      })
+    }
+    throw throwError(() => 'Невозможно использовать токен!');
+  }
+
   public getIsLoggedIn(): boolean {
     return this.isLogged;
   }

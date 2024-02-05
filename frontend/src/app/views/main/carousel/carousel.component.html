@@ -1,11 +1,11 @@
 <owl-carousel-o [options]="customHighlights" #owlCarHighlights>
-  <ng-template carouselSlide *ngFor="let highlight of highlights">
+  <ng-template carouselSlide *ngFor="let highlight of highlights; let i = index">
     <div class="main__carousel">
       <div class="main__info">
         <div class="main__highlights">{{ highlight.highlight }}</div>
         <div class="main__title" [innerHTML]="highlight.title"></div>
         <div class="main__description">{{ highlight.description }}</div>
-        <button class="main__btn btn">Подробнее</button>
+        <button class="main__btn btn" (click)="openDialog('500ms', '250ms', getButtonText(i), true)">Подробнее</button>
       </div>
       <img src="../../../../assets/images/main/ellipse.png" class="main__ellipse" alt="Ellipse">
       <div class="main__carousel-image" style="background-image: url('/assets/images/main/{{highlight.image}}')"></div>

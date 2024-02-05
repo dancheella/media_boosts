@@ -1,9 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { CategoryType } from "../../../../types/category.type";
-import { Subscription } from "rxjs";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ActiveParamsType } from "../../../../types/active-params.type";
-import { ActiveParamsUtil } from "../../utils/active-params.util";
+import { Component, Input, OnDestroy, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryType } from '../../../../types/category.type';
+import { ActiveParamsType } from '../../../../types/active-params.type';
+import { ActiveParamsUtil } from '../../utils/active-params.util';
 
 @Component({
   selector: 'app-filter',
@@ -18,7 +18,8 @@ export class FilterComponent implements OnInit, OnDestroy {
   activeParams: ActiveParamsType = { categories: [] };
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private elementRef: ElementRef) {
   }
 
   ngOnInit(): void {
@@ -49,6 +50,13 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   toggleFilter(): void {
     this.filterOpen = !this.filterOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.filterOpen = false;
+    }
   }
 
   ngOnDestroy(): void {

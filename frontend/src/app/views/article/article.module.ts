@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { ArticleRoutingModule } from './article-routing.module';
 import { BlogComponent } from './blog/blog.component';
-import { DetailComponent } from './detail/detail.component';
 import { SharedModule } from "../../shared/shared.module";
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
+import { FormsModule } from "@angular/forms";
+import { DetailComponent } from "./detail/detail.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PaginationComponent } from '../../shared/components/pagination/paginati
   imports: [
     CommonModule,
     ArticleRoutingModule,
+    FormsModule,
     SharedModule
   ]
 })

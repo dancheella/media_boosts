@@ -7,18 +7,24 @@ import { FilterComponent } from "./components/filter/filter.component";
 import { AppliedFilterComponent } from './components/applied-filter/applied-filter.component';
 import { PopupComponent } from './components/popup/popup.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { CommentComponent } from "./components/comment/comment.component";
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     ArticleCardComponent,
     FilterComponent,
     AppliedFilterComponent,
-    PopupComponent
+    PopupComponent,
+    CommentComponent,
+    LoaderComponent
   ],
   exports: [
     ArticleCardComponent,
     FilterComponent,
-    AppliedFilterComponent
+    AppliedFilterComponent,
+    CommentComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

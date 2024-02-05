@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })
-export class PaginationComponent implements OnInit, OnDestroy{
+export class PaginationComponent implements OnInit, OnDestroy {
   articles: PopularArticleType[] = [];
 
   activeParams: ActiveParamsType = { categories: [] };
@@ -38,7 +38,7 @@ export class PaginationComponent implements OnInit, OnDestroy{
   }
 
   openPrevPage(): void {
-    if (this.activeParams.page &&this.activeParams.page > 1) {
+    if (this.activeParams.page && this.activeParams.page > 1) {
       this.activeParams.page--;
 
       this.router.navigate(['/blog'], {

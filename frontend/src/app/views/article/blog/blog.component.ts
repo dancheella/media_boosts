@@ -20,10 +20,12 @@ export class BlogComponent implements OnInit, OnDestroy {
   activeParams: ActiveParamsType = { categories: [] };
 
   private subscription: Subscription | null = null;
+  private articleSubscription: Subscription | null = null;
 
   constructor(private articleService: ArticleService,
               private activatedRoute: ActivatedRoute,
-              private categoryService: CategoryService) {}
+              private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.subscription = this.categoryService.getCategories()
@@ -31,22 +33,24 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.categories = categories;
       });
 
-    this.subscription = this.activatedRoute.queryParams.subscribe(params => {
-      this.activeParams = ActiveParamsUtil.processParams(params);
+    this.subscription = this.activatedRoute.queryParams
+      .subscribe(params => {
+        this.activeParams = ActiveParamsUtil.processParams(params);
 
-      this.articleService.getArticle(this.activeParams)
-        .subscribe((data: { count: number, pages: number, items: PopularArticleType[] }) => {
-          this.pages = [];
-          for (let i = 1; i <= data.pages; i++) {
-            this.pages.push(i);
-          }
+        this. articleSubscription = this.articleService.getArticles(this.activeParams)
+          .subscribe((data: { count: number, pages: number, items: PopularArticleType[] }) => {
+            this.pages = [];
+            for (let i = 1; i <= data.pages; i++) {
+              this.pages.push(i);
+            }
 
-          this.articles = data.items;
-        });
-    });
+            this.articles = data.items;
+          });
+      });
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.articleSubscription?.unsubscribe()
   }
 }
