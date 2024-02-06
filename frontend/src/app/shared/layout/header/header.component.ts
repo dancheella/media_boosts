@@ -17,25 +17,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userName: string = '';
 
   private subscription: Subscription | null = null;
+  private userSubscription: Subscription | null = null;
 
   constructor(private authService: AuthService,
               private userService: UserService,
               private _snackBar: MatSnackBar,
               private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
+    this.getUserName();
   }
 
   ngOnInit(): void {
     this.subscription = this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
+      this.getUserName();
     })
-
-    this.getUserName();
   }
 
   getUserName(): void {
     if (this.isLogged) {
-      this.userService.getUserInfo()
+      this.userSubscription = this.userService.getUserInfo()
         .subscribe((data: UserInfoType | DefaultResponseType) => {
           this.userName = (data as UserInfoType).name
         })
@@ -43,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-    this.authService.logout()
+    this.subscription = this.authService.logout()
       .subscribe({
         next: () => {
           this.doLogout();
@@ -59,10 +60,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.userId = null;
     this.userService.userName = null;
     this._snackBar.open('Выход выполнен успешно!');
-    this.router.  navigate(['/']);
+    this.router.navigate(['/']);
   }
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+    this.userSubscription?.unsubscribe();
   }
 }

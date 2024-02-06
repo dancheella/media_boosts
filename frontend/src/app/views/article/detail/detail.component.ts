@@ -62,15 +62,9 @@ export class DetailComponent implements OnInit, OnDestroy {
           .subscribe((data: PopularArticleType[]) => {
             this.articles = data;
           })
-
-        this.commentSubscription = this.articleService.getArticle(params['url'])
-          .subscribe((data: ArticleType) => {
-            this.article = data;
-            this.comments = data.comments;
-
-            this.getArticleDetail();
-          })
       })
+
+    this.getArticleDetail();
   }
 
   addComment(): void {
@@ -103,11 +97,24 @@ export class DetailComponent implements OnInit, OnDestroy {
           }
         })
 
-        this.getArticleDetail();
+        this.getActionsComments();
       })
   }
 
   getArticleDetail(): void {
+    this.routeSubscription = this.activatedRoute.params
+      .pipe(
+        switchMap((params: Params) => this.articleService.getArticle(params['url']))
+      )
+      .subscribe((data: ArticleType) => {
+        this.article = data;
+        this.comments = data.comments;
+
+        this.getActionsComments();
+      })
+  }
+
+  getActionsComments(): void {
     if (this.isLogged) {
       this.commentSubscription = this.commentsService.getArticleCommentActionsForUser(this.article.id)
         .subscribe((data: ActionCommentsType[] | DefaultResponseType) => {
